@@ -1,0 +1,98 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "miseroda-mail",
+  "main": "src/worker/index.ts",
+  // 對齊本地 workerd 支援上限，避免測試(本地)與正式環境行為分歧
+  "compatibility_date": "2025-09-06",
+  "compatibility_flags": ["nodejs_compat"],
+  // 自訂網域在首次部署時綁定 —— WebAuthn RP ID 鎖定 mail.miseroda.com，
+  // 不要在 workers.dev 網域上註冊真實 passkey。
+  "routes": [{ "pattern": "mail.miseroda.com", "custom_domain": true }],
+  // Smart Placement：原本是為了「D1 在 WNAM、使用者在台灣」而設（把 worker 搬去靠近 D1）。
+  // ⚠️ 2026-09-09 實測推翻了下面這行原本的假設：進站邊緣其實在 PDX（美西，TCP RTT ~165ms），
+  // 不是台北 —— 所以 Worker 與 APAC 的 D1/R2 並「不」就近，Smart Placement 反而是有用的
+  // （低流量不一定觸發，實測 8 次僅 1 次 remote-KIX）。原註解：D1 已在 APAC 故此設定無作用亦無害
+  // （且低流量單一地區本來就觸發不了 Smart Placement，見計劃 §0）。保留不動以免多開一個變因。
+  "placement": { "mode": "smart" },
+  // worker 全接：/api/* 走 Hono，其餘由 worker 轉 env.ASSETS.fetch（SPA fallback 由 binding 處理）
+  // —— 讓 M6 能統一加 CSP/HSTS 等安全標頭，也避免 '/' 在 dev 下的路由怪癖
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    // 只有 worker 真正要接的路由才進 worker；靜態/SPA 由 Asset Worker 邊緣直送。
+    // 目的：讓 Smart Placement 可以把 worker 搬到 D1（WNAM）旁邊而不拖慢資產載入。
+    // 安全標頭改由 public/_headers 在邊緣補上（與 index.ts 的 CSP 等價，兩邊需同步）。
+    // ⚠️ 此清單需與 src/worker/index.ts fetch() 的路徑判斷一致，漏一條該路由就會被當靜態檔 404。
+    "run_worker_first": ["/api/*", "/dl/*", "/share-target", "/cal/*", "/e/*", "/e-decrypt.js"]
+  },
+  // F15.1 Phase 2（2026-07-24）：兩個庫從 WNAM 遷到 APAC（離台灣近）。binding 名不變，只換 id/name。
+  // 舊庫 miseroda-mail(6ce90d71…) / miseroda-mail-fts(91bb46f9…) **完好保留、未刪**——
+  // 回退方式就是把下面兩個 database_id 換回去再 push（熔斷 C5：非經 Hon 明確同意永不刪除舊庫）。
+  // FTS 新庫是空庫建起：FTS5 虛擬表無法 d1 export，改由 migrations 建 schema ＋ admin /fts/rebuild 從主庫重建。
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "miseroda-mail-apac",
+      "database_id": "1c44e071-158b-4634-b246-4d4b1c2fa6d9",
+      "migrations_dir": "migrations/main"
+    },
+    {
+      "binding": "DB_FTS",
+      "database_name": "miseroda-mail-fts-apac",
+      "database_id": "e77e28a8-1beb-4e5b-9c58-1ab3b6b43e0a",
+      "migrations_dir": "migrations/fts"
+    }
+  ],
+  // F15.2：R2 遷 APAC（2026-09-09）。舊桶 miseroda-mail-store 在 WNAM，D1 早在 Phase 2 就搬到 APAC，
+  // 等於「metadata 在亞洲、信件原文與附件在北美」。binding 名不變 → 94 個 MAIL_STORE 呼叫點一行都不用改。
+  // 回退：把 bucket_name 改回 miseroda-mail-store 再 push（舊桶保留 ≥7 天，確認無虞才刪）。
+  "r2_buckets": [{ "binding": "MAIL_STORE", "bucket_name": "miseroda-mail-store-apac" }],
+  "kv_namespaces": [{ "binding": "KV", "id": "086c153197694d508200794c46876a08" }],
+  "queues": {
+    "producers": [
+      { "binding": "SEND_QUEUE", "queue": "miseroda-send" },
+      { "binding": "INGEST_QUEUE", "queue": "miseroda-ingest" }
+    ],
+    "consumers": [
+      {
+        "queue": "miseroda-send",
+        "max_batch_size": 5,
+        "max_retries": 5,
+        "retry_delay": 60,
+        "dead_letter_queue": "miseroda-dlq"
+      },
+      {
+        "queue": "miseroda-ingest",
+        "max_batch_size": 10,
+        "max_retries": 5,
+        "dead_letter_queue": "miseroda-dlq"
+      },
+      // F18.1：DLQ 也要有人接——只記 error_log 然後 ack（index.ts queue() 依 batch.queue 分流）。
+      // max_retries 0：DLQ 本身沒有 DLQ，記錄失敗就放掉，絕不能在這裡再形成重試迴圈。
+      {
+        "queue": "miseroda-dlq",
+        "max_batch_size": 10,
+        "max_retries": 0
+      }
+    ]
+  },
+  "send_email": [{ "name": "SEND_EMAIL" }],
+  "ai": { "binding": "AI" },
+  // 每使用者 WebSocket hub（即時收件，取代純輪詢）
+  // new_classes（KV-backed）而非 new_sqlite_classes：UserHub 無持久狀態，
+  // 且 vitest-pool-workers isolated storage 不支援 SQLite-backed DO
+  "durable_objects": { "bindings": [{ "name": "USER_HUB", "class_name": "UserHub" }] },
+  "migrations": [{ "tag": "v1", "new_classes": ["UserHub"] }],
+  "triggers": { "crons": ["* * * * *", "0 0 * * *", "0 18 * * *", "0 */6 * * *"] },
+  "observability": { "enabled": true },
+  "vars": {
+    "RP_ID": "mail.miseroda.com",
+    "ORIGIN": "https://mail.miseroda.com",
+    "MAIL_DOMAIN": "miseroda.com",
+    // M7 雙投遞過渡用：設成既有轉寄信箱即同時轉寄一份；空字串 = 關閉
+    "FORWARD_TO": "",
+    // Web Push VAPID 公鑰（公開值；私鑰在 secret VAPID_PRIVATE_JWK）
+    "VAPID_PUBLIC_KEY": "BMahpZPkIY3clbcXgQrijNkSM1nbc-w3gmeVIaBw_FoJS7kj13tbJ8FQ3ECryftQyX6OV9_XUnR6vGBNCnP30hw"
+  }
+}

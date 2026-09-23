@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+worker-configuration.d.ts
+*.local
+.DS_Store
+coverage/
+
+# wrangler dev 的本機 R2 模擬輸出（R2 key 前綴；可能含本機測試信件，勿入庫）
+att/
+avatar/
+html/
+raw/
+upload/
+cal/
+.verify*   # iCloud 會產生「.verify 2.log」這種帶空格的副本，.verify.log* 蓋不到
+
+# D1 遷移用的完整 SQL dump（含全家信件原文，絕不可入庫）
+backup/
+cut/

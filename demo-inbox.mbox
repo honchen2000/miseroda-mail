@@ -1,0 +1,296 @@
+From notifications@example.com Sat Jul 18 10:05:00 2026
+From: GitHub <notifications@example.com>
+To: demo@miseroda.com
+Subject: [northwind/web] Fix flaky checkout test (#482)
+Date: Sat, 18 Jul 2026 10:05:00 +0800
+Message-ID: <demo-1000.dyrdwb@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Pull request opened</h2><p><b>devon-okoro</b> opened <a href="https://example.com/pr/482">#482 · Fix flaky checkout test</a>.</p><p>3 files changed · +48 −12</p></body></html>
+
+From devon.okoro@example.com Sun Jul 19 09:22:00 2026
+From: Devon Okoro <devon.okoro@example.com>
+To: demo@miseroda.com
+Subject: Re: [northwind/web] Fix flaky checkout test (#482)
+Date: Sun, 19 Jul 2026 09:22:00 +0800
+Message-ID: <demo-1002.ajce8@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+In-Reply-To: <demo-1000.dyrdwb@example.com>
+References: <demo-1000.dyrdwb@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">LGTM 🎉</h2><p>Nice catch on the race condition. Left one small comment about the retry count, otherwise ready to merge.</p><p>— Devon</p></body></html>
+
+From crew@example.com Mon Jul 14 06:30:00 2026
+From: The Morning Brew <crew@example.com>
+To: demo@miseroda.com
+Subject: ☕ Tuesday: markets, a mega-merger, and a very good dog
+Date: Mon, 14 Jul 2026 06:30:00 +0800
+Message-ID: <demo-1003.3j5hfh@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+List-Unsubscribe: <https://example.com/unsub>, <mailto:unsub@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Good morning.</h2><p>Stocks wobbled, a $40B deal leaked, and a golden retriever became a small-town mayor. Here is everything you missed.</p><p><a href="https://example.com/read">Read online →</a></p></body></html>
+
+From newsletter@example.com Wed Jul 16 07:15:00 2026
+From: TechCrunch <newsletter@example.com>
+To: demo@miseroda.com
+Subject: Daily Crunch: The AI feature everyone shipped this week
+Date: Wed, 16 Jul 2026 07:15:00 +0800
+Message-ID: <demo-1004.9mqx8c@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+List-Unsubscribe: <https://example.com/unsub>, <mailto:unsub@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Daily Crunch</h2><p>Three launches, one lawsuit, and a founder who quit to farm alpacas. Your 5-minute briefing is inside.</p></body></html>
+
+From updates@example.com Wed Jul 15 11:40:00 2026
+From: Figma <updates@example.com>
+To: demo@miseroda.com
+Subject: New in Figma: variables, now everywhere
+Date: Wed, 15 Jul 2026 11:40:00 +0800
+Message-ID: <demo-1005.9ob8re@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+List-Unsubscribe: <https://example.com/unsub>, <mailto:unsub@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Product update</h2><p>Variables now work across modes, prototypes, and code. Here is a 2-minute tour.</p><p><a href="https://example.com/whatsnew">See what’s new</a></p></body></html>
+
+From digest@example.com Fri Jul 17 08:00:00 2026
+From: Product Hunt <digest@example.com>
+To: demo@miseroda.com
+Subject: 🚀 The 10 products the community loved today
+Date: Fri, 17 Jul 2026 08:00:00 +0800
+Message-ID: <demo-1006.g6p8wv@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+List-Unsubscribe: <https://example.com/unsub>, <mailto:unsub@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Today’s top 10</h2><ol><li>Inbox Zero, but for Slack</li><li>A calendar that says no for you</li><li>Yet another note app (this one’s good)</li></ol></body></html>
+
+From receipts@example.com Mon Jul 20 08:12:00 2026
+From: Northwind Coffee <receipts@example.com>
+To: demo@miseroda.com
+Subject: Your receipt from Northwind Coffee — $4.50
+Date: Mon, 20 Jul 2026 08:12:00 +0800
+Message-ID: <demo-1007.crfugh@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Thanks for stopping by ☕</h2><p>Flat white · <b>$4.50</b><br>Paid with Visa •••• 4291<br>20 Jul 2026, 08:11</p></body></html>
+
+From ebill@example.com Wed Jul 15 09:00:00 2026
+From: 台灣電力公司 <ebill@example.com>
+To: demo@miseroda.com
+Subject: 您的 7 月電費帳單已出帳（NT$1,240）
+Date: Wed, 15 Jul 2026 09:00:00 +0800
+Message-ID: <demo-1008.10w48d@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">電費帳單通知</h2><p>應繳金額：<b>NT$1,240</b><br>繳費期限：2026/08/05<br>用電期間：06/14 – 07/13</p><p><a href="https://example.com/pay">立即繳費</a></p></body></html>
+
+From tracking@example.com Sun Jul 19 14:30:00 2026
+From: SwiftShip <tracking@example.com>
+To: demo@miseroda.com
+Subject: Your order #A7734 has shipped 📦
+Date: Sun, 19 Jul 2026 14:30:00 +0800
+Message-ID: <demo-1009.9cl5wv@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">On its way</h2><p>Tracking: <b>SS4471902TW</b><br>Estimated delivery: 21 Jul 2026</p><p><a href="https://example.com/track">Track package</a></p></body></html>
+
+From billing@example.com Sun Jul 13 03:05:00 2026
+From: Netflix <billing@example.com>
+To: demo@miseroda.com
+Subject: Netflix 訂閱扣款成功 · NT$390
+Date: Sun, 13 Jul 2026 03:05:00 +0800
+Message-ID: <demo-1010.g5yu7y@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">付款確認</h2><p>標準方案 · <b>NT$390</b><br>下次扣款：2026/08/13</p></body></html>
+
+From billing@example.com Fri Jul 17 12:00:00 2026
+From: Figma <billing@example.com>
+To: demo@miseroda.com
+Subject: Your Figma plan renews on Aug 1 — $15.00
+Date: Fri, 17 Jul 2026 12:00:00 +0800
+Message-ID: <demo-1011.b5ypof@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Upcoming renewal</h2><p>Professional (1 editor) · <b>$15.00</b> on 1 Aug 2026.</p></body></html>
+
+From mara.chen@example.com Mon Jul 20 09:40:00 2026
+From: Mara Chen <mara.chen@example.com>
+To: demo@miseroda.com
+Subject: 週末要不要去爬象山？🥾
+Date: Mon, 20 Jul 2026 09:40:00 +0800
+Message-ID: <demo-1012.arfbmv@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Hi～</h2><p>禮拜六天氣好像不錯，早上八點約象山登山口？走完去吃早午餐 😋 記得帶水！</p><p>—— Mara</p></body></html>
+
+From a.ma@example.com Thu Jul 16 20:15:00 2026
+From: Grandma <a.ma@example.com>
+To: demo@miseroda.com
+Subject: 上次聚餐的照片
+Date: Thu, 16 Jul 2026 20:15:00 +0800
+Message-ID: <demo-1013.7s93uc@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">阿嬤傳來的照片</h2><p>阿嬤學會用信箱了！這是上週吃飯拍的，記得回我。</p></body></html>
+
+From sam.rivera@example.com Fri Jul 18 00:05:00 2026
+From: Sam Rivera <sam.rivera@example.com>
+To: demo@miseroda.com
+Subject: 🎂 Happy birthday!
+Date: Fri, 18 Jul 2026 00:05:00 +0800
+Message-ID: <demo-1014.3o3x89@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Have a great one 🎉</h2><p>Hope the year ahead is full of good coffee and merged PRs. Let’s grab dinner soon!</p></body></html>
+
+From jordan.blake@example.com Sun Jul 19 18:00:00 2026
+From: Jordan Blake <jordan.blake@example.com>
+To: demo@miseroda.com
+Subject: Dinner Saturday?
+Date: Sun, 19 Jul 2026 18:00:00 +0800
+Message-ID: <demo-1001.8b38te@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Saturday plans</h2><p>A few of us are getting dinner Saturday around 7. That new ramen place. You in?</p></body></html>
+
+From priya.nair@example.com Sun Jul 19 18:45:00 2026
+From: Priya Nair <priya.nair@example.com>
+To: demo@miseroda.com
+Subject: Re: Dinner Saturday?
+Date: Sun, 19 Jul 2026 18:45:00 +0800
+Message-ID: <demo-1015.1jafk@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+In-Reply-To: <demo-1001.8b38te@example.com>
+References: <demo-1001.8b38te@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Count me in</h2><p>Yes! Booking for 6. Anyone have allergies I should flag?</p></body></html>
+
+From calendar@example.com Sun Jul 20 07:00:00 2026
+From: Calendar <calendar@example.com>
+To: demo@miseroda.com
+Subject: Reminder: Dentist appointment tomorrow, 3:00 PM
+Date: Sun, 20 Jul 2026 07:00:00 +0800
+Message-ID: <demo-1016.8jth19@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Upcoming event</h2><p><b>Dentist — cleaning</b><br>Tomorrow · 3:00 PM – 3:45 PM<br>Bright Smile Clinic, 2F</p></body></html>
+
+From noreply@example.com Fri Jul 17 22:00:00 2026
+From: China Airlines <noreply@example.com>
+To: demo@miseroda.com
+Subject: Check-in is open for flight CI-825 (TPE → NRT)
+Date: Fri, 17 Jul 2026 22:00:00 +0800
+Message-ID: <demo-1017.7fidte@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Online check-in</h2><p>Departure: 22 Jul 2026, 09:35<br>Seat: 21A · Boarding: 09:05</p><p><a href="https://example.com/checkin">Check in now</a></p></body></html>
+
+From alerts@example.com Mon Jul 14 05:00:00 2026
+From: Acme Bank <alerts@example.com>
+To: demo@miseroda.com
+Subject: Your July statement is ready · Card ending 4291
+Date: Mon, 14 Jul 2026 05:00:00 +0800
+Message-ID: <demo-1018.esbwen@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Statement ready</h2><p>New balance: <b>$832.10</b> · Minimum due: $35.00 · Due 05 Aug 2026.</p></body></html>
+
+From security@example.com Sat Jul 18 21:30:00 2026
+From: Miseroda Security <security@example.com>
+To: demo@miseroda.com
+Subject: New sign-in from Chrome on macOS
+Date: Sat, 18 Jul 2026 21:30:00 +0800
+Message-ID: <demo-1019.69wro1@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">New device signed in</h2><p>If this was you, no action needed. If not, review your active devices in Settings.</p></body></html>
+
+From feed@example.com Thu Jul 16 13:10:00 2026
+From: Slack <feed@example.com>
+To: demo@miseroda.com
+Subject: You have 12 unread messages in #design
+Date: Thu, 16 Jul 2026 13:10:00 +0800
+Message-ID: <demo-1020.7ddg4r@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+List-Unsubscribe: <https://example.com/unsub>, <mailto:unsub@example.com>
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">While you were away</h2><p><b>#design</b> · 12 new messages<br><b>@here</b> from Devon: "ship it?"</p></body></html>
+
+From devon.okoro@example.com Wed Jul 15 16:20:00 2026
+From: Devon Okoro <devon.okoro@example.com>
+To: demo@miseroda.com
+Subject: Q3 planning doc — feedback by Friday 🙏
+Date: Wed, 15 Jul 2026 16:20:00 +0800
+Message-ID: <demo-1021.25gyxs@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Q3 planning</h2><p>Draft is in the shared drive. Would love your comments on the roadmap section before Fri. Keeping it tight this quarter.</p></body></html>
+
+From careers@example.com Mon Jul 20 10:30:00 2026
+From: Talent Team <careers@example.com>
+To: demo@miseroda.com
+Subject: Interview scheduled: Senior Frontend Engineer
+Date: Mon, 20 Jul 2026 10:30:00 +0800
+Message-ID: <demo-1022.fvvaz6@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">You’re confirmed</h2><p>Round 2 · 23 Jul 2026, 2:00 PM (45 min) · Video<br>Panel: Devon (EM), Priya (Staff FE)</p><p>Good luck — we’re excited to chat!</p></body></html>
+
+From notifications@example.com Mon Jul 20 09:30:00 2026
+From: GitHub <notifications@example.com>
+To: demo@miseroda.com
+Subject: ✅ PR approved: [northwind/web] Fix flaky checkout test (#482)
+Date: Mon, 20 Jul 2026 09:30:00 +0800
+Message-ID: <demo-1023.8utqgz@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<!doctype html><html><body style="font-family:-apple-system,'Noto Sans TC',sans-serif;color:#1a1a1a;line-height:1.7">
+<h2 style="margin:0 0 10px">Approved</h2><p><b>devon-okoro</b> approved your changes. This branch has no conflicts and is ready to merge.</p></body></html>

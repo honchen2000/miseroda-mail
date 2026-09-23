@@ -1,0 +1,14 @@
+# 靜態資產的安全標頭（邊緣直送，不經 worker）。
+# 背景：為了讓 Smart Placement 能把 worker 搬到 D1 旁（跨區讀信才快），run_worker_first 已縮到
+# 只涵蓋 worker 真正要接的路由；其餘靜態/SPA 由 Asset Worker 直送，因此原本由 withSecurityHeaders
+# 加的標頭必須在這裡等價補回。
+#
+# ⚠️ 這份內容必須與 src/worker/index.ts 的 CSP 常數 + withSecurityHeaders 保持一致。
+# 改其中一邊就要同步改另一邊（worker 路由仍走 withSecurityHeaders）。
+# CSP 對非文件回應（js/css/圖）是惰性的，故統一套在 /* 最單純也安全。
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

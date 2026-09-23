@@ -1,0 +1,35 @@
+{
+  "name": "Miseroda Mail",
+  "short_name": "Miseroda",
+  "description": "企鵝 Pori × 極光主題的自架 webmail",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0A0E1A",
+  "theme_color": "#0A0E1A",
+  "lang": "zh-Hant",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "寫信", "short_name": "寫信", "description": "開新郵件", "url": "/?launch=compose", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "未讀", "short_name": "未讀", "description": "只看未讀", "url": "/?launch=unread", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "搜尋", "short_name": "搜尋", "description": "搜尋信件", "url": "/?launch=search", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "星標", "short_name": "星標", "description": "已加星標", "url": "/?launch=starred", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ],
+  "share_target": {
+    "action": "/share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        { "name": "files", "accept": ["image/*", "application/pdf", "text/*", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".zip"] }
+      ]
+    }
+  }
+}

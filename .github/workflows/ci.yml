@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # 防呆上限：測試卡死時別燒到預設的 6 小時（私有 repo 的 Actions 分鐘數要算錢）
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      # 分批跑（scripts/test-batches.sh）：一次 vitest run 全部會同時起 120 個 workerd，RPC 逾時全滅（LESSONS L15）
+      - run: npm test
+      - run: npm run build

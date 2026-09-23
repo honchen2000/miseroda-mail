@@ -1,0 +1,119 @@
+/* Quiet Aurora: content-first mail workspace. Keep print and accessibility
+   tokens in styles.css; user-customized tokens continue to take precedence. */
+@media screen {
+  .shell { --sidebar-width: 208px; --mail-list-width: clamp(300px, 26vw, 356px); grid-template-columns: var(--sidebar-width) var(--mail-list-width) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+  .shell.wide-main { grid-template-columns: var(--sidebar-width) minmax(0, 1fr); }
+  .shell.mail-workspace { grid-template-rows: 64px minmax(0, 1fr); }
+  .mail-workspace > .sidebar { grid-column: 1; grid-row: 1 / -1; }
+  .mail-topbar { grid-column: 2 / -1; grid-row: 1; padding: 12px var(--topright-w) 12px 24px; background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; }
+  .mail-workspace > .listpane { grid-column: 2; grid-row: 2; }
+  .mail-workspace > .readpane { grid-column: 3; grid-row: 2; }
+  .mail-search { display: flex; align-items: center; gap: 8px; width: 100%; max-width: 720px; min-width: 0; }
+  .mail-search .searchbar { min-width: 0; }
+  .mail-search .searchbar .input { background: var(--bg-base); border-color: var(--border-subtle); }
+  .mail-search .iconbtn { flex: none; }
+  .mail-search .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: none; }
+  .avatar { background: var(--accent-soft); color: var(--accent); }
+  .sidebar-head { padding: 16px 16px 13px; min-height: 64px; }
+  .sidebar-title { font-size: 14px; font-weight: 600; }
+  .sidebar-domain { font-family: var(--font-ui); font-size: 10.5px; }
+  .sidebar-aurora { opacity: .07; }
+  .compose-cta { margin: 14px 14px 18px; padding: 11px 14px; box-shadow: none; }
+  .nav { padding: 0 10px 16px; }
+  .nav-item { padding: 9px 10px; font-size: 13px; }
+  .nav-section { font-weight: 500; padding-top: 22px; letter-spacing: .06em; }
+  .listpane { background: var(--bg-surface); }
+  .listpane-head { padding: 22px 18px 12px; gap: 12px; }
+  .mail-list-title { margin: 0; font-size: 21px; line-height: 1.4; font-weight: 600; letter-spacing: -.03em; }
+  .listpane-meta { font-family: var(--font-ui); gap: 8px; }
+  .listpane-meta > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .msg-list { padding: 0 0 16px; gap: 0; }
+  .msg-item { padding: calc(var(--row-pad-y) + 4px) 16px; border-radius: 0; border-bottom: 1px solid var(--border-subtle); gap: 9px; }
+  .msg-item.selected { background: var(--accent-soft); box-shadow: inset 3px 0 var(--accent); }
+  .msg-item.kbd-cursor { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .msg-item .unread-bar { left: 5px; top: 24px; bottom: auto; width: 5px; height: 5px; border-radius: 50%; }
+  .msg-row1 { margin-bottom: 3px; }
+  .msg-time { font-family: var(--font-ui); font-variant-numeric: tabular-nums; font-size: 11px; }
+  .msg-subject { font-size: 13px; }
+  .msg-snippet { font-size: 12px; margin-top: 2px; }
+  .msg-chips { gap: 4px; margin-top: 5px; }
+  .msg-chips .chip { font-size: 10.5px; padding: 1px 6px; }
+  .inbox-glance { background: transparent; border-radius: 0; border-bottom: 1px solid var(--border-subtle); margin: 0; padding: 10px 18px; font-size: 12px; }
+  .readpane { background: var(--bg-surface); }
+  .readpane-toolbar { background: var(--bg-surface); min-height: 55px; }
+  .readpane-scroll { padding: 28px clamp(20px, 3vw, 48px) 48px; scroll-padding-top: 24px; }
+  .read-subject { font-size: clamp(22px, 2vw, 28px); font-weight: 600; line-height: 1.5; letter-spacing: -.025em; overflow-wrap: anywhere; }
+  .read-meta-row { margin-top: 8px; margin-bottom: 22px; }
+  .mail-card { background: var(--bg-surface); border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 24px; }
+  .mail-card-head { padding: 16px 0 0; flex-wrap: wrap; }
+  .mail-card-sender { min-width: 140px; }
+  .mail-card-time { font-family: var(--font-ui); font-size: 11px; }
+  .mail-card-addr, .mail-card-to { overflow-wrap: anywhere; }
+  .mail-card-body { padding: 20px 0; }
+  .ai-disclosure { background: transparent; border: 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); border-radius: 0; box-shadow: none; padding: 0; }
+  .ai-disclosure::before { display: none; }
+  .ai-disclosure > summary { padding: 13px 0; cursor: pointer; font-weight: 500; font-size: 13px; }
+  .ai-disclosure > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* 展開/收合的可發現性：summary 的原生三角被 .ai-head{display:flex} 移除 display:list-item 關掉了，
+     故補一顆 chevron，旋轉寫法照抄 styles.css 的 .msg-info-chev 先例。 */
+  .ai-disclosure > summary .ai-chev { display: inline-flex; transform: rotate(-90deg); }
+  .ai-disclosure[open] > summary .ai-chev { transform: none; }
+  [data-motion="on"] .ai-disclosure .ai-chev { transition: transform var(--dur-fast) var(--ease-out); }
+  .ai-disclosure > .ai-summary { margin: 0 0 16px; color: var(--text-secondary); line-height: 1.8; }
+  .ai-disclosure > .ai-chips { padding-bottom: 12px; }
+  .ai-generate { background: transparent; box-shadow: none; border-color: var(--border-subtle); }
+  .read-actions { gap: 10px; margin-top: 22px; }
+  .user-chip, .notif-bell { box-shadow: none; border-width: 1px; }
+  .inline-reply-mount { scroll-margin-top: 24px; }
+  .inline-reply-mount:has(.composer:not(.minimized)) + .read-actions { display: none; }
+  .composer.composer-inline { position: relative; inset: auto; width: 100%; max-width: none; max-height: none; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-surface); box-shadow: 0 4px 18px rgba(0,0,0,.06); margin: 24px 0; z-index: 10; }
+  .composer-inline.minimized { display: none; }
+  .composer-inline .composer-titlebar { background: var(--bg-base); }
+  .composer-inline .composer-fields { padding-inline: 14px; }
+  .composer-inline .composer-body { min-height: 190px; }
+  .composer-inline .composer-foot { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
+  .composer-inline .composer-foot .composer-size { margin-left: 0; }
+  .composer-inline .composer-fieldrow { flex-wrap: wrap; }
+}
+@media screen and (min-width: 921px) {
+  .mail-workspace .readpane-toolbar { padding-right: 18px; }
+  .mail-workspace .readpane-scroll > * { max-width: 860px; margin-left: auto; margin-right: auto; }
+}
+@media screen and (min-width: 921px) and (max-width: 1120px) {
+  .shell { --sidebar-width: 184px; --mail-list-width: 300px; }
+  .sidebar-head { padding-inline: 12px; gap: 7px; }
+  .sidebar-domain { font-size: 10px; }
+  .readpane-scroll { padding-inline: 20px; }
+}
+@media screen and (max-width: 920px) {
+  .shell, .shell.wide-main { grid-template-columns: minmax(0, 1fr); }
+  .mail-workspace > .listpane { grid-column: 1; grid-row: 2; }
+  .mail-workspace > .readpane { grid-column: 1; position: fixed; inset: 0; }
+  .mail-workspace.demo-shift.read-open > .readpane { top: 30px; height: calc(100dvh - 30px); }
+  .mail-topbar { grid-column: 1; padding: 10px var(--topright-w) 10px 12px; }
+  .mail-search { gap: 4px; }
+  .mail-search .searchbar .input { font-size: 16px; }
+  .shell.mail-workspace { grid-template-rows: auto minmax(0, 1fr); }
+  .mail-topbar .mail-search { flex-wrap: wrap; padding-top: 44px; position: relative; }
+  .mail-topbar .mail-search > .mobile-only { position: absolute; left: 0; top: 0; }
+  .mail-topbar { padding-right: 12px; }
+  /* 搜尋列已移到 .mail-topbar，所以清單頭不再需要為右上角浮動圖示保留 --topright-w。
+     styles.css 那條 @media(max-width:920px) 的 .listpane-head{padding-right:var(--topright-w)}
+     仍然必要——草稿頁沒有 .mail-topbar（渲染條件 !isContentView && !isDraftsView），
+     那裡的 .listpane-head 就在視窗頂端、圖示真的會壓到它。故只在本版面覆寫，不要整條刪掉。 */
+  .mail-workspace > .listpane .listpane-head { padding-right: 18px; }
+  .mail-search .searchbar { flex-basis: 160px !important; }
+  .readpane-scroll { padding: 20px 16px 36px; }
+  .mail-card-head { gap: 8px; }
+  .readpane:has(.composer-inline:not(.minimized)) .readpane-mobilebar { display: none; }
+  .composer.composer-inline { height: auto; max-height: none; margin-bottom: env(safe-area-inset-bottom, 0px); }
+  .readpane-toolbar .toolbar-reply { display: none; }
+  .snooze-direct { font-size: 12px; padding-inline: 6px; }
+}
+@media screen and (pointer: coarse) {
+  .mail-search .iconbtn, .snooze-direct { min-width: 44px; min-height: 44px; }
+}
+@media print {
+  .mail-topbar, .inline-reply-mount { display: none !important; }
+}

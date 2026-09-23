@@ -1,0 +1,7 @@
+# 複製為 .dev.vars 供本機 wrangler dev 使用
+RP_ID=localhost
+ORIGIN=http://localhost:8787
+MAIL_DOMAIN=miseroda.com
+BOOTSTRAP_TOKEN=dev-bootstrap-token
+# 32 bytes base64（正式環境用 wrangler secret put TOTP_ENC_KEY）
+TOTP_ENC_KEY=ZGV2LW9ubHkta2V5LWRldi1vbmx5LWtleS1kZXYta2V5IQ==
